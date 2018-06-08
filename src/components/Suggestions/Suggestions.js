@@ -18,7 +18,7 @@ class Suggestions extends Component {
     var searchResultJSX= this.props.results.map((e)=>{
       return(
       <div className="divWrappingLink">
-        <Link className="links" to={{pathname:"/RouteThree",state: { element:{e}}}}>
+        <Link className="links" to={{pathname:"/movie_info",state: { element:{e}}}}>
           {e.title}<br />
         </Link>
       </div>

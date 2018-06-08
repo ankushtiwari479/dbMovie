@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Switch, Route ,Link } from 'react-router-dom';
 // import 'bootstrap/dist/css/bootstrap.css';
 // import {Navbar ,NavItem,MenuItem,NavDropdown,Nav} from 'react-bootstrap';
-import RouteThree from '../RouteThree/RouteThree'
-import './RouteOne.css';
-class RouteOne extends Component {
+import ShowMovieInfoComponent from '../ShowMovieInfoComponent/ShowMovieInfoComponent'
+import './HomeComponent.css';
+class HomeComponent extends Component {
   constructor(props){
     super(props);
     this.arr=[];
@@ -40,7 +40,7 @@ class RouteOne extends Component {
     const sampleMoviesJSX = this.state.arrOfMovies.map((e,index)=>{
       return (
 
-      <Link to={{pathname:"/RouteThree",state: { element:{e}}}}
+      <Link to={{pathname:"/movie_info",state: { element:{e}}}}
         className='defaultMovies' key={index}>
         Title : {e.title}<br />
         popularity :{e.popularity}<br />
@@ -62,4 +62,4 @@ class RouteOne extends Component {
   }
 }
 
-export default RouteOne;
+export default HomeComponent;

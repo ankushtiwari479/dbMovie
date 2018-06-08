@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import RouteOne from './RouteOne/RouteOne'
-import RouteTwo from './RouteTwo/RouteTwo'
-import RouteThree from './RouteThree/RouteThree'
+import HomeComponent from './components/HomeComponent/HomeComponent'
+import ShowMovieInfoComponent from './components/ShowMovieInfoComponent/ShowMovieInfoComponent'
 import { Switch, Route ,Link } from 'react-router-dom';
-import NavBar from './NavBar/NavBar';
-import SearchBar from './SearchBar/SearchBar'
-import Suggestions from './Suggestions/Suggestions'
+import NavBar from './components/NavBar/NavBar';
+import SearchBar from './components/SearchBar/SearchBar'
+import Suggestions from './components/Suggestions/Suggestions'
 class App extends Component {
   constructor(props){
     super(props);
@@ -50,9 +49,9 @@ class App extends Component {
           this.state.hideSearch!==true?(<Suggestions results={this.state.data}/>):''
         }
         <Switch>
-          <Route exact path='/' component={RouteOne}>
+          <Route exact path='/' component={HomeComponent}>
           </Route>
-          <Route path='/RouteThree' component={RouteThree}>
+          <Route path='/movie_info' component={ShowMovieInfoComponent}>
           </Route>
         </Switch>
       </div>

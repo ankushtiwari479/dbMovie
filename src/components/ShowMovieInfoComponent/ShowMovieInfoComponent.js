@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import './RouteThree.css';
+import './ShowMovieInfoComponent.css';
 
-class RouteThree extends Component {
+class ShowMovieInfoComponent extends Component {
   constructor(props){
     super(props);
     console.log('ID IS :',props.location.state);
   }
   render() {
     return (
-      <div className="RouteThree">
+      <div className="ShowMovieInfoComponent">
 
         <h1>{this.props.location.state.element.e.title}</h1>
         <img src={"http://image.tmdb.org/t/p/w400//"+this.props.location.state.element.e.poster_path}/>
@@ -23,4 +23,4 @@ class RouteThree extends Component {
   }
 }
 
-export default RouteThree;
+export default ShowMovieInfoComponent;
