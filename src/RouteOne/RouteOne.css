@@ -1,0 +1,17 @@
+.defaultMovies{
+  font-size: 20px;
+  padding-top:5%;
+  padding-bottom:5%;
+  /* height: 20vw; */
+  background: linear-gradient(to bottom right, red, yellow, #ff5916);
+  margin: 2vh;
+  width: 30vw;
+  float: left;
+  /* text-align: left; */
+  text-decoration:none;
+  color: white;
+}
+
+.RouteOneMainDiv{
+  margin-top: 3vh;
+}

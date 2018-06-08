@@ -1,0 +1,35 @@
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    overflow: hidden;
+    background:linear-gradient(to right, #ff5916, #ffad36);
+    width: 100vw;
+}
+
+.navbarLink {
+    float: left;
+    text-decoration: none;
+    border-right:1px solid #bbb;
+}
+
+.navbarLink:last-child {
+    border-right: none;
+}
+
+.navbarLink span {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbarLink span:hover:not(.active) {
+    background-color: #ffad36;
+}
+
+.active {
+    background-color: #4CAF50;
+}
