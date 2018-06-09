@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route ,Link } from 'react-router-dom';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import {fetchPopularMovies} from '../../actions/movieActions'
 // import 'bootstrap/dist/css/bootstrap.css';
 // import {Navbar ,NavItem,MenuItem,NavDropdown,Nav} from 'react-bootstrap';
 import ShowMovieInfoComponent from '../ShowMovieInfoComponent/ShowMovieInfoComponent'
@@ -11,19 +14,8 @@ class HomeComponent extends Component {
     this.state={arrOfMovies:[]}
   }
 
-    componentDidMount(){
-      const url='https://api.themoviedb.org/3/movie/popular?api_key=0e44f3f47fe9896c30b4c57f7d2a6941';
-      var popularResult ;
-      fetch(url).then(results=>{
-        return results.json();
-      }).then(data=>{
-        popularResult=data.results;
-        this.setState(()=>{
-          return {
-            arrOfMovies:popularResult
-          }
-        });
-      });
+    componentWillMount(){
+      this.props.fetchPopularMovies();
     }
     componentWillUpdate(){
       // this.returningElemets();
@@ -37,7 +29,7 @@ class HomeComponent extends Component {
   render() {
     const sampleMovies = this.state.arrOfMovies;
     console.log('render' ,this.state);
-    const sampleMoviesJSX = this.state.arrOfMovies.map((e,index)=>{
+    const sampleMoviesJSX = this.props.movies.map((e,index)=>{
       return (
 
       <Link to={{pathname:"/movie_info",state: { element:{e}}}}
@@ -62,4 +54,9 @@ class HomeComponent extends Component {
   }
 }
 
-export default HomeComponent;
+const mapStateToProps = state=>({
+  movies:state.movies.items,
+});
+
+
+export default connect(mapStateToProps,{fetchPopularMovies})(HomeComponent) ;

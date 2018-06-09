@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
+import {Provider} from 'react-redux';
+import store from './store';
 import HomeComponent from './components/HomeComponent/HomeComponent'
 import ShowMovieInfoComponent from './components/ShowMovieInfoComponent/ShowMovieInfoComponent'
 import { Switch, Route ,Link } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import SearchBar from './components/SearchBar/SearchBar'
+
 import Suggestions from './components/Suggestions/Suggestions'
 class App extends Component {
   constructor(props){
@@ -41,20 +44,22 @@ class App extends Component {
   render() {
     console.log(this.state);
     return (
-      <div className="App" >
-        <NavBar />
-        <SearchBar onSearchResult={data=>this.handleSearchResult(data)} onSearchBarBlur={this.handleOnSearchBarBlur} onSearchBarFocus={this.handleOnSearchBarFocus} />
-        <br/>
-        {
-          this.state.hideSearch!==true?(<Suggestions results={this.state.data}/>):''
-        }
-        <Switch>
-          <Route exact path='/' component={HomeComponent}>
-          </Route>
-          <Route path='/movie_info' component={ShowMovieInfoComponent}>
-          </Route>
-        </Switch>
-      </div>
+      <Provider store={store}>
+          <div className="App" >
+            <NavBar />
+            <SearchBar onSearchResult={data=>this.handleSearchResult(data)} onSearchBarBlur={this.handleOnSearchBarBlur} onSearchBarFocus={this.handleOnSearchBarFocus} />
+            <br/>
+            {
+              this.state.hideSearch!==true?(<Suggestions results={this.state.data}/>):''
+            }
+            <Switch>
+              <Route exact path='/' component={HomeComponent}>
+              </Route>
+              <Route path='/movie_info' component={ShowMovieInfoComponent}>
+              </Route>
+            </Switch>
+          </div>
+      </Provider>
     );
   }
 }
